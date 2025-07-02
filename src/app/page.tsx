@@ -36,19 +36,19 @@ export default function Home() {
             <div className="logo">Portfolio</div>
             <ul className="nav-links">
               <li>
-                <a href="#home">หน้าแรก</a>
+                <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#about">เกี่ยวกับ</a>
+                <a href="#about">About Me</a>
               </li>
               <li>
-                <a href="#skills">ทักษะ</a>
+                <a href="#skills">Skills</a>
               </li>
               <li>
-                <a href="#projects">ผลงาน</a>
+                <a href="#projects">Project</a>
               </li>
               <li>
-                <a href="#contact">ติดต่อ</a>
+                <a href="#contact">Contact Me</a>
               </li>
             </ul>
           </div>
@@ -57,10 +57,13 @@ export default function Home() {
         {/* <!-- Hero Section --> */}
         <section id="home" className="hero">
           <div className="hero-content">
-            <h1>Space Developer</h1>
-            <p>สร้างสรรค์เว็บไซต์และแอปพลิเคชันที่สวยงาม ✨</p>
+            <h1>Front-end Developer</h1>
+            <p>
+              Creating high-performance web applications with exceptional user
+              experience
+            </p>
             <a href="#about" className="cta-button">
-              ดูผลงาน
+              view project
             </a>
           </div>
         </section>
@@ -68,7 +71,7 @@ export default function Home() {
         {/* <!-- About Section --> */}
         <section id="about">
           <div className="container">
-            <h2>เกี่ยวกับฉัน</h2>
+            <h2>About Me</h2>
             <div className="about-content">
               <div className="about-image">
                 <span
@@ -79,16 +82,11 @@ export default function Home() {
               </div>
               <div className="about-text">
                 <p>
-                  ฉันเป็น Web Developer
-                  ที่มีความหลงใหลในการสร้างสรรค์เว็บไซต์และแอปพลิเคชันที่สวยงาม
-                  ใช้งานง่าย และมีประสิทธิภาพ
-                  ด้วยประสบการณ์หลายปีในการพัฒนาเว็บไซต์
-                </p>
-                <br />
-                <p>
-                  ฉันชอบการเรียนรู้เทคโนโลยีใหม่ๆ
-                  และนำมาประยุกต์ใช้ในโปรเจคต่างๆ
-                  เพื่อให้ได้ผลลัพธ์ที่ดีที่สุดสำหรับลูกค้า
+                  Experienced Web Developer passionate about creating beautiful,
+                  functional, and high-performance digital experiences.
+                  Leveraging years of development expertise and a commitment to
+                  continuous learning, I deliver innovative web solutions that
+                  drive results for clients and users alike.
                 </p>
               </div>
             </div>
@@ -98,23 +96,19 @@ export default function Home() {
         {/* <!-- Skills Section --> */}
         <section id="skills" className="skills">
           <div className="container">
-            <h2>ทักษะ</h2>
+            <h2>Skills</h2>
             <div className="skills-grid">
               <div className="skill-card">
                 <h3>Frontend Development</h3>
-                <p>HTML, CSS, JavaScript, React, Vue.js</p>
+                <p>HTML, CSS, JavaScript, TypeScript, React, Vue.js</p>
               </div>
               <div className="skill-card">
                 <h3>Backend Development</h3>
-                <p>Node.js, Python, PHP, Database</p>
+                <p>Node.js, Python, Express, MangoDB, SQL</p>
               </div>
               <div className="skill-card">
                 <h3>UI/UX Design</h3>
-                <p>Figma, Adobe XD, Photoshop</p>
-              </div>
-              <div className="skill-card">
-                <h3>Mobile Development</h3>
-                <p>React Native, Flutter</p>
+                <p>Figma, Adobe XD</p>
               </div>
             </div>
           </div>
@@ -123,7 +117,7 @@ export default function Home() {
         {/* <!-- Projects Section --> */}
         <section id="projects">
           <div className="container">
-            <h2>ผลงาน</h2>
+            <h2>Projects</h2>
             <div className="projects-grid">
               <div className="project-card">
                 <div className="project-image project-web"></div>
@@ -159,20 +153,17 @@ export default function Home() {
         {/* <!-- Contact Section --> */}
         <section id="contact" className="contact">
           <div className="container">
-            <h2>ติดต่อฉัน</h2>
+            <h2>Contact Me</h2>
             <p>สนใจร่วมงานหรือมีโปรเจคที่ต้องการความช่วยเหลือ?</p>
             <div className="contact-links">
-              <a href="mailto:your@email.com" className="contact-link">
-                Email
-              </a>
-              <a href="#" className="contact-link">
+              <a
+                href="https://www.linkedin.com/in/jaturaporn"
+                className="contact-link"
+              >
                 LinkedIn
               </a>
-              <a href="#" className="contact-link">
+              <a href="https://github.com/jaturaorn" className="contact-link">
                 GitHub
-              </a>
-              <a href="#" className="contact-link">
-                โทรศัพท์
               </a>
             </div>
           </div>
