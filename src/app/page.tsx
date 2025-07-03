@@ -1,3 +1,12 @@
+import ProjectItems from "./Components/ProjectItems";
+import projectData from "./project";
+
+interface ProjectData {
+  title: string;
+  photoName: string;
+  link: string;
+}
+
 export default function Home() {
   return (
     <>
@@ -82,11 +91,12 @@ export default function Home() {
               </div>
               <div className="about-text">
                 <p>
-                  Experienced Web Developer passionate about creating beautiful,
-                  functional, and high-performance digital experiences.
-                  Leveraging years of development expertise and a commitment to
-                  continuous learning, I deliver innovative web solutions that
-                  drive results for clients and users alike.
+                  I am a dedicated Web Developer with extensive experience in
+                  building sophisticated, user-centric websites and
+                  applications. My commitment to exploring cutting-edge
+                  technologies and implementing best practices ensures the
+                  delivery of superior digital solutions tailored to client
+                  needs.
                 </p>
               </div>
             </div>
@@ -119,33 +129,9 @@ export default function Home() {
           <div className="container">
             <h2>Projects</h2>
             <div className="projects-grid">
-              <div className="project-card">
-                <div className="project-image project-web"></div>
-                <div className="project-content">
-                  <h3>E-commerce Website</h3>
-                  <p>
-                    เว็บไซต์ขายของออนไลน์ที่สมบูรณ์
-                    พร้อมระบบการชำระเงินและจัดการสินค้า
-                  </p>
-                </div>
-              </div>
-              <div className="project-card">
-                <div className="project-image project-mobile"></div>
-                <div className="project-content">
-                  <h3>Mobile App</h3>
-                  <p>
-                    แอปพลิเคชันมือถือสำหรับการจัดการงานประจำวัน พร้อม
-                    notification
-                  </p>
-                </div>
-              </div>
-              <div className="project-card">
-                <div className="project-image project-dashboard"></div>
-                <div className="project-content">
-                  <h3>Business Dashboard</h3>
-                  <p>ระบบแดชบอร์ดสำหรับติดตามข้อมูลทางธุรกิจแบบ real-time</p>
-                </div>
-              </div>
+              {projectData.map((project: ProjectData, i: number) => (
+                <ProjectItems key={i} projectDataObject={project} />
+              ))}
             </div>
           </div>
         </section>

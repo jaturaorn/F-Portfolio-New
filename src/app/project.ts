@@ -1,8 +1,13 @@
 const projectData = [
   {
-    title: "BEM Clone Project",
-    photoName: "/public/Images/Capture.jpg",
-    link: "https://bem-clone-project.netlify.app",
+    title: "eat-n-spilt",
+    photoName: "/public/Images/Screenshot 2024-01-13 231726.png",
+    link: "https://eat-n-spilt.vercel.app/",
+  },
+  {
+    title: "ecom-website",
+    photoName: "/public/Images/Screenshot 2024-01-13 232137.png",
+    link: "https://ecom-website-seven.vercel.app/",
   },
   {
     title: "Tindog-Project",
@@ -51,8 +56,8 @@ const projectData = [
   },
   {
     title: "shopping-cart",
-    photoName: "/public/Images/Screenshot 2024-01-13 231226.png",
-    link: "https://shopping-cart-liart-mu.vercel.app/",
+    photoName: "/imgs/s1.jpg",
+    link: "https://shopping-cartnew-nine.vercel.app",
   },
   {
     title: "pizza-m-enu",
@@ -60,14 +65,9 @@ const projectData = [
     link: "https://pizza-m-enu.vercel.app/",
   },
   {
-    title: "eat-n-spilt",
-    photoName: "/public/Images/Screenshot 2024-01-13 231726.png",
-    link: "https://eat-n-spilt.vercel.app/",
-  },
-  {
-    title: "ecom-website",
-    photoName: "/public/Images/Screenshot 2024-01-13 232137.png",
-    link: "https://ecom-website-seven.vercel.app/",
+    title: "BEM Clone Project",
+    photoName: "/public/Images/Capture.jpg",
+    link: "https://bem-clone-project.netlify.app",
   },
 ];
 
