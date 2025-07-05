@@ -1,28 +1,19 @@
 const projectData = [
   {
     title: "eat-n-spilt",
-    photoName: "/public/Images/Screenshot 2024-01-13 231726.png",
     link: "https://eat-n-spilt.vercel.app/",
   },
   {
     title: "ecom-website",
-    photoName: "/public/Images/Screenshot 2024-01-13 232137.png",
     link: "https://ecom-website-seven.vercel.app/",
   },
   {
     title: "Tindog-Project",
-    photoName: "/public/Images/Capture1.png",
     link: "https://fabulous-biscochitos-86b7e2.netlify.app",
   },
   {
     title: "Colma-academy-project",
-    photoName: "/public/Images/Capture2.jpg",
     link: "https://coma-academy.netlify.app/",
-  },
-  {
-    title: "Game-findyourhat-Js",
-    photoName: "/public/Images/Capture1.jpg",
-    link: "https://replit.com/@JaturapornGoo/Jsdasset",
   },
   {
     title: "Count-project",
@@ -31,43 +22,47 @@ const projectData = [
   },
   {
     title: "Drum-kit-Project",
-    photoName: "/public/Images/Capture4.jpg",
     link: "https://drum-f-0c4a41.netlify.app/",
   },
   {
     title: "Tech_Ed-Project",
-    photoName: "/public/Images/Tech_Ed.png",
     link: "https://freetime-project.vercel.app/",
   },
   {
     title: "MEME-Project",
-    photoName: "/public/Images/MEME.png",
     link: "https://meme-ws-jaturaorn.vercel.app/",
   },
   {
     title: "Mondrian-Project",
-    photoName: "/public/Images/mondrian.png",
     link: "https://mondrian-project-alpha.vercel.app/",
   },
   {
-    title: "work-clone-project",
-    photoName: "/public/Images/Screenshot 2024-01-13 230851.png",
-    link: "https://work-clone-project.vercel.app/",
-  },
-  {
     title: "shopping-cart",
-    photoName: "/imgs/s1.jpg",
     link: "https://shopping-cartnew-nine.vercel.app",
   },
   {
     title: "pizza-m-enu",
-    photoName: "/public/Images/Screenshot 2024-01-13 231506.png",
     link: "https://pizza-m-enu.vercel.app/",
   },
-  {
-    title: "BEM Clone Project",
-    photoName: "/public/Images/Capture.jpg",
-    link: "https://bem-clone-project.netlify.app",
+  { 
+    title: "Car-Land-Project",
+    link: "https://learn-next-js-tau-ten.vercel.app",
+  },
+  { 
+    title: "Travel-lists-Project",
+    link: "https://travel-list-react-green.vercel.app",
+  },
+  { 
+    title: "Calculator",
+    link: "https://calculator-js-five-eta.vercel.app",
+  },
+  { 
+    title: "NBA Player stat",
+    link: "https://nbastat-flame.vercel.app",
+  },
+  { 
+    title: "Steps-Project",
+    link: "https://steps-react-eight.vercel.app/",
   },
 ];
 

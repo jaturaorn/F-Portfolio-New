@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ProjectItemsProps {
   projectDataObject: {
     title: string;
@@ -8,13 +10,15 @@ interface ProjectItemsProps {
 
 const ProjectItems = ({ projectDataObject }: ProjectItemsProps) => {
   return (
-    <div className="project-card">
+    <Link href={projectDataObject.link} target="_blank" className="project-card">
+    <div>
       <div className="project-image project-web" />
       <div className="project-content">
         <h3>{projectDataObject.title}</h3>
-        <p>{projectDataObject.link}</p>
+        <p></p>
       </div>
     </div>
+    </Link>
   );
 };
 
