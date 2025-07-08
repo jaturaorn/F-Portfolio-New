@@ -3,7 +3,7 @@ import projectData from "./project";
 
 interface ProjectData {
   title: string;
-  photoName: string;
+  logo: string;
   link: string;
 }
 
@@ -158,7 +158,7 @@ export default function Home() {
         {/* <!-- Footer --> */}
         <footer>
           <div className="container">
-            <p>&copy; 2025 My Portfolio. สงวนลิขสิทธิ์.</p>
+            <p>&copy; 2025 My Portfolio.</p>
           </div>
         </footer>
       </div>
