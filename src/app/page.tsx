@@ -5,163 +5,186 @@ interface ProjectData {
   title: string;
   logo: string;
   link: string;
+  category: string;
+  description: string;
 }
 
 export default function Home() {
+  const featuredProjects = projectData.filter((project) =>
+    ["Web3", "Trading UI", "AI token", "Vesting"].includes(project.category)
+  );
+
   return (
-    <>
-      <div
-        className=" min-h-screen font-[family-name:var(--font-geist-sans)]"
-        // flex flex-col items-center justify-items-center gap-16
-      >
-        {/* <!-- Modern Space Elements --> */}
-        <div className="nebula-bg"></div>
+    <div className="site-shell min-h-screen">
+      <div className="nebula-bg" aria-hidden="true"></div>
+      <div className="particle-system" aria-hidden="true">
+        <div className="space-particle"></div>
+        <div className="space-particle"></div>
+        <div className="space-particle"></div>
+        <div className="space-particle"></div>
+        <div className="space-particle"></div>
+      </div>
 
-        {/* <!-- Particle System --> */}
-        <div className="particle-system">
-          <div className="space-particle"></div>
-          <div className="space-particle"></div>
-          <div className="space-particle"></div>
-          <div className="space-particle"></div>
-          <div className="space-particle"></div>
+      <nav>
+        <div className="container">
+          <a href="#home" className="logo" aria-label="Portfolio home">
+            Jaturaporn
+          </a>
+          <ul className="nav-links">
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#skills">Skills</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
+      </nav>
 
-        {/* <!-- Modern Stars --> */}
-        <div className="space-element modern-star"></div>
-        <div className="space-element modern-star"></div>
-        <div className="space-element modern-star"></div>
-        <div className="space-element modern-star"></div>
-
-        {/* <!-- Modern Space Objects --> */}
-        <div className="space-element modern-rocket"></div>
-        <div className="space-element modern-planet"></div>
-        <div className="space-element modern-ufo"></div>
-        <div className="space-element modern-asteroid"></div>
-        <div className="space-element modern-comet"></div>
-
-        {/* <!-- Navigation --> */}
-        <nav>
-          <div className="container">
-            <div className="logo">Portfolio</div>
-            <ul className="nav-links">
-              <li>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <a href="#about">About Me</a>
-              </li>
-              <li>
-                <a href="#skills">Skills</a>
-              </li>
-              <li>
-                <a href="#projects">Project</a>
-              </li>
-              <li>
-                <a href="#contact">Contact Me</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        {/* <!-- Hero Section --> */}
-        <section id="home" className="hero">
-          <div className="hero-content">
-            <h1>Front-end Developer</h1>
-            <p>
-              Creating high-performance web applications with exceptional user
-              experience
-            </p>
-            <a href="#about" className="cta-button">
-              view project
+      <section id="home" className="hero">
+        <div className="orbit-field" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div className="hero-content">
+          <p className="hero-kicker">Frontend developer for Web3-grade interfaces</p>
+          <h1>Cinematic web experiences with frontend craft.</h1>
+          <p className="hero-copy">
+            I build high-performance React and Next.js interfaces for recruiters,
+            Web3 teams, and local employers who need polished, reliable product
+            work.
+          </p>
+          <div className="hero-actions">
+            <a href="#projects" className="cta-button">
+              View projects
+            </a>
+            <a href="#contact" className="secondary-link">
+              Contact me
             </a>
           </div>
-        </section>
-
-        {/* <!-- About Section --> */}
-        <section id="about">
-          <div className="container">
-            <h2>About Me</h2>
-            <div className="about-content">
-              <div className="about-image">
-                <span
-                // style="font-size: 6rem; background: linear-gradient(45deg, #ffffff, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"
-                >
-                  👨‍🚀
-                </span>
-              </div>
-              <div className="about-text">
-                <p>
-                  I am a dedicated Web Developer with extensive experience in
-                  building sophisticated, user-centric websites and
-                  applications. My commitment to exploring cutting-edge
-                  technologies and implementing best practices ensures the
-                  delivery of superior digital solutions tailored to client
-                  needs.
-                </p>
-              </div>
+          <div className="mission-stats" aria-label="Portfolio highlights">
+            <div>
+              <strong>{projectData.length}+</strong>
+              <span>launched projects</span>
+            </div>
+            <div>
+              <strong>{featuredProjects.length}</strong>
+              <span>Web3 builds</span>
+            </div>
+            <div>
+              <strong>React</strong>
+              <span>Next.js / TypeScript</span>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* <!-- Skills Section --> */}
-        <section id="skills" className="skills">
-          <div className="container">
-            <h2>Skills</h2>
-            <div className="skills-grid">
-              <div className="skill-card">
-                <h3>Frontend Development</h3>
-                <p>HTML, CSS, JavaScript, TypeScript, React, Vue.js</p>
-              </div>
-              <div className="skill-card">
-                <h3>Backend Development</h3>
-                <p>Node.js, Python, Express, MangoDB, SQL</p>
-              </div>
-              <div className="skill-card">
-                <h3>UI/UX Design</h3>
-                <p>Figma, Adobe XD</p>
-              </div>
+      <section id="about" className="about-section">
+        <div className="container">
+          <div className="about-content">
+            <div className="about-image" aria-hidden="true">
+              <span>FD</span>
+            </div>
+            <div className="about-text">
+              <span className="section-label">About</span>
+              <h2>Frontend work built for momentum.</h2>
+              <p>
+                I am a frontend developer focused on sophisticated, user-centered
+                websites and applications. My work combines modern React
+                engineering, responsive UI, and a growing Web3 portfolio so teams
+                can move from idea to usable interface with confidence.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* <!-- Projects Section --> */}
-        <section id="projects">
-          <div className="container">
-            <h2>Projects</h2>
-            <div className="projects-grid">
-              {projectData.map((project: ProjectData, i: number) => (
-                <ProjectItems key={i} projectDataObject={project} />
-              ))}
+      <section id="skills" className="skills">
+        <div className="container">
+          <div className="section-heading">
+            <span className="section-label">Capabilities</span>
+            <h2>Core systems I bring to a build.</h2>
+          </div>
+          <div className="skills-grid">
+            <div className="skill-card">
+              <h3>Frontend Development</h3>
+              <p>HTML, CSS, JavaScript, TypeScript, React, Next.js, Vue.js</p>
+            </div>
+            <div className="skill-card">
+              <h3>Product Integration</h3>
+              <p>Node.js, Python, Express, MongoDB, SQL, API-driven UI</p>
+            </div>
+            <div className="skill-card">
+              <h3>Interface Design</h3>
+              <p>Figma, Adobe XD, responsive systems, Web3 product polish</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* <!-- Contact Section --> */}
-        <section id="contact" className="contact">
-          <div className="container">
-            <h2>Contact Me</h2>
-            <p>สนใจร่วมงานหรือมีโปรเจคที่ต้องการความช่วยเหลือ?</p>
-            <div className="contact-links">
-              <a
-                href="https://www.linkedin.com/in/jaturaporn"
-                className="contact-link"
-              >
-                LinkedIn
-              </a>
-              <a href="https://github.com/jaturaorn" className="contact-link">
-                GitHub
-              </a>
-            </div>
+      <section id="projects">
+        <div className="container">
+          <div className="section-heading">
+            <span className="section-label">Selected launches</span>
+            <h2>Project work with range, proof, and Web3 depth.</h2>
           </div>
-        </section>
+          <div className="projects-grid">
+            {projectData.map((project: ProjectData, i: number) => (
+              <ProjectItems
+                key={`${project.title}-${i}`}
+                projectDataObject={project}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* <!-- Footer --> */}
-        <footer>
-          <div className="container">
-            <p>&copy; 2025 My Portfolio.</p>
+      <section id="contact" className="contact">
+        <div className="container">
+          <span className="section-label">Contact</span>
+          <h2>Have a role, product, or Web3 interface that needs lift?</h2>
+          <p>
+            I am open to frontend roles, collaboration, and project-based work
+            with teams that care about reliable interfaces and polished user
+            experience.
+          </p>
+          <div className="contact-links">
+            <a
+              href="https://www.linkedin.com/in/jaturaporn"
+              className="contact-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/jaturaorn"
+              className="contact-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
           </div>
-        </footer>
-      </div>
-    </>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container">
+          <p>&copy; 2026 Jaturaporn Portfolio. Built for the next launch.</p>
+        </div>
+      </footer>
+    </div>
   );
 }

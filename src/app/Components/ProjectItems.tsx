@@ -6,21 +6,37 @@ interface ProjectItemsProps {
     title: string;
     logo: string;
     link: string;
+    category: string;
+    description: string;
   };
+  index: number;
 }
 
-const ProjectItems = ({ projectDataObject }: ProjectItemsProps) => {
+const ProjectItems = ({ projectDataObject, index }: ProjectItemsProps) => {
   return (
-    <Link href={projectDataObject.link} target="_blank" className="project-card">
-    <div className="">
-      <div className="project-image project-web" >
-        <Image src={projectDataObject.logo} width={200} height={200} alt="" className=" size-[55px] rounded-[15px]" />
+    <Link
+      href={projectDataObject.link}
+      target="_blank"
+      rel="noreferrer"
+      className="project-card"
+      aria-label={`Open ${projectDataObject.title} project`}
+    >
+      <div className="project-image">
+        <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
+        <Image
+          src={projectDataObject.logo}
+          width={96}
+          height={96}
+          alt={`${projectDataObject.title} logo`}
+          className="project-logo"
+        />
       </div>
       <div className="project-content">
+        <span className="project-category">{projectDataObject.category}</span>
         <h3>{projectDataObject.title}</h3>
-        <p></p>
+        <p>{projectDataObject.description}</p>
+        <span className="project-link-text">View launch</span>
       </div>
-    </div>
     </Link>
   );
 };
