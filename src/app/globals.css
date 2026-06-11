@@ -17,6 +17,9 @@
   --shadow: rgba(5, 4, 18, 0.58);
   --radius: 16px;
   --max: 1180px;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -54,6 +57,7 @@ a {
     radial-gradient(circle at 20% 8%, rgba(94, 231, 255, 0.18), transparent 30rem),
     radial-gradient(circle at 78% 4%, rgba(157, 114, 255, 0.32), transparent 28rem),
     linear-gradient(180deg, #05040b 0%, #0a0619 42%, #05040b 100%);
+  animation: scene-wake 800ms var(--ease-out-expo) both;
 }
 
 .container {
@@ -75,6 +79,7 @@ a {
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 88px 88px;
   mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+  animation: grid-arrive 900ms var(--ease-out-expo) both;
 }
 
 .nebula-bg::before,
@@ -120,7 +125,8 @@ a {
     28vw 72vh 0 rgba(157, 114, 255, 0.85),
     76vw 78vh 0 rgba(94, 231, 255, 0.66),
     10vw 88vh 0 rgba(255, 255, 255, 0.52);
-  animation: star-drift 14s ease-in-out infinite alternate;
+  animation: star-arrive 720ms var(--ease-out-quart) both,
+    star-drift 14s ease-in-out 720ms infinite alternate;
 }
 
 .space-particle:nth-child(1) {
@@ -160,6 +166,37 @@ a {
   to {
     transform: translate3d(18px, -26px, 0);
     opacity: 0.92;
+  }
+}
+
+@keyframes scene-wake {
+  from {
+    filter: saturate(0.7) brightness(0.74);
+  }
+  to {
+    filter: saturate(1) brightness(1);
+  }
+}
+
+@keyframes grid-arrive {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes star-arrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-10px, 12px, 0) scale(0.7);
+  }
+  to {
+    opacity: 0.7;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -255,6 +292,7 @@ nav .container {
   aspect-ratio: 1;
   border-radius: 50%;
   opacity: 0.72;
+  animation: orbit-arrive 850ms var(--ease-out-expo) 120ms both;
 }
 
 .orbit-field span {
@@ -269,7 +307,7 @@ nav .container {
   inset: 20%;
   border-color: rgba(94, 231, 255, 0.18);
   transform: rotateX(72deg) rotateZ(30deg);
-  animation: orbit-pulse 7s ease-in-out infinite;
+  animation: orbit-pulse 7s ease-in-out 900ms infinite;
 }
 
 .orbit-field span:nth-child(3) {
@@ -285,6 +323,19 @@ nav .container {
   }
   50% {
     opacity: 0.9;
+  }
+}
+
+@keyframes orbit-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92) rotate(-8deg);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 0.72;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
   }
 }
 
@@ -309,6 +360,7 @@ nav .container {
   max-width: min(100%, 680px);
   margin: 0 auto;
   text-wrap: balance;
+  animation: hero-copy-arrive 620ms var(--ease-out-quint) 110ms both;
 }
 
 .hero h1 {
@@ -321,6 +373,7 @@ nav .container {
   text-wrap: balance;
   overflow-wrap: normal;
   text-shadow: 0 0 34px rgba(157, 114, 255, 0.32);
+  animation: hero-title-arrive 760ms var(--ease-out-expo) 190ms both;
 }
 
 .hero-copy {
@@ -330,6 +383,7 @@ nav .container {
   font-size: clamp(1.05rem, 2vw, 1.28rem);
   line-height: 1.75;
   text-wrap: pretty;
+  animation: hero-copy-arrive 620ms var(--ease-out-quint) 330ms both;
 }
 
 .hero-actions {
@@ -339,6 +393,7 @@ nav .container {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 34px;
+  animation: hero-copy-arrive 520ms var(--ease-out-quint) 430ms both;
 }
 
 .cta-button,
@@ -353,13 +408,46 @@ nav .container {
   font-weight: 800;
   background: linear-gradient(135deg, var(--cyan), var(--gold));
   box-shadow: 0 10px 24px rgba(94, 231, 255, 0.18);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 160ms var(--ease-out-quart),
+    box-shadow 200ms var(--ease-out-quart), filter 200ms var(--ease-out-quart);
+}
+
+.cta-button::after,
+.contact-link::after {
+  content: "";
+  position: absolute;
+  inset: -40% -65%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: translateX(-70%) rotate(16deg);
+  transition: transform 420ms var(--ease-out-quint);
 }
 
 .cta-button:hover,
 .contact-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(94, 231, 255, 0.24);
+  filter: saturate(1.08);
+}
+
+.cta-button:hover::after,
+.contact-link:hover::after,
+.cta-button:focus-visible::after,
+.contact-link:focus-visible::after {
+  transform: translateX(70%) rotate(16deg);
+}
+
+.cta-button:active,
+.contact-link:active,
+.secondary-link:active,
+.project-card:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .secondary-link {
@@ -369,6 +457,14 @@ nav .container {
   color: var(--ink);
   font-weight: 800;
   border-bottom: 1px solid rgba(94, 231, 255, 0.72);
+  transition: color 180ms var(--ease-out-quart),
+    border-color 180ms var(--ease-out-quart), transform 160ms var(--ease-out-quart);
+}
+
+.secondary-link:hover {
+  color: var(--cyan);
+  border-color: var(--gold);
+  transform: translateY(-1px);
 }
 
 .mission-stats {
@@ -382,6 +478,7 @@ nav .container {
   border-radius: var(--radius);
   background: var(--line);
   box-shadow: 0 24px 80px var(--shadow);
+  animation: stats-arrive 640ms var(--ease-out-expo) 540ms both;
 }
 
 .mission-stats div {
@@ -389,6 +486,19 @@ nav .container {
   padding: 22px;
   background: rgba(10, 8, 24, 0.72);
   backdrop-filter: blur(14px);
+  animation: stat-cell-arrive 420ms var(--ease-out-quart) both;
+}
+
+.mission-stats div:nth-child(1) {
+  animation-delay: 620ms;
+}
+
+.mission-stats div:nth-child(2) {
+  animation-delay: 690ms;
+}
+
+.mission-stats div:nth-child(3) {
+  animation-delay: 760ms;
 }
 
 .mission-stats strong {
@@ -508,13 +618,43 @@ h2 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
-  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  position: relative;
+  transition: transform 220ms var(--ease-out-quart),
+    border-color 220ms var(--ease-out-quart),
+    background 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart);
+  will-change: transform;
 }
 
-.project-card:hover {
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 18%,
+    rgba(94, 231, 255, 0.13) 42%,
+    rgba(255, 209, 102, 0.08) 48%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translateX(-38%);
+  transition: opacity 220ms var(--ease-out-quart),
+    transform 520ms var(--ease-out-expo);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
   transform: translateY(-5px);
   border-color: var(--line-strong);
   background: var(--surface-strong);
+  box-shadow: 0 24px 60px rgba(5, 4, 18, 0.38);
+}
+
+.project-card:hover::after,
+.project-card:focus-visible::after {
+  opacity: 1;
+  transform: translateX(32%);
 }
 
 .project-image {
@@ -554,6 +694,14 @@ h2 {
   z-index: 1;
   border-radius: 18px;
   box-shadow: 0 18px 48px rgba(5, 4, 18, 0.5);
+  transition: transform 260ms var(--ease-out-quart),
+    box-shadow 260ms var(--ease-out-quart);
+}
+
+.project-card:hover .project-logo,
+.project-card:focus-visible .project-logo {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 24px 54px rgba(5, 4, 18, 0.58);
 }
 
 .project-content {
@@ -674,6 +822,52 @@ footer {
   }
 }
 
+@keyframes hero-title-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-copy-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stats-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stat-cell-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -686,5 +880,18 @@ footer {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .space-particle,
+  .orbit-field,
+  .hero-kicker,
+  .hero h1,
+  .hero-copy,
+  .hero-actions,
+  .mission-stats,
+  .mission-stats div {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
