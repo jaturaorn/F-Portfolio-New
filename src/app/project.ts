@@ -159,6 +159,22 @@ const projectData = [
     description:
       "Token vesting experience focused on clarity, status, and investor confidence.",
   },
+  {
+    title: "Agnos CareSync Portal",
+    link: "https://agnospatientpluse.vercel.app/",
+    logo: "/Logos/MyLogo.png",
+    category: "Next.js",
+    description:
+      "Real-time patient registration and monitoring system with staff dashboard using WebSockets.",
+  },
+  {
+    title: "Blog Management Dashboard",
+    link: "https://project-send-abbot.vercel.app/",
+    logo: "/Logos/MyLogo.png",
+    category: "Next.js",
+    description:
+      "Interactive dashboard for publishing, searching, and managing blog post states in real-time.",
+  },
 ];
 
 export default projectData;
